@@ -1,0 +1,79 @@
+\begin{questions}
+\question{
+Calculate the magnetic moment
+}
+\begin{solution}
+For this problem first it might be useful to remember the definition of the $\hat{L}$ operator
+\begin{equation}
+  \hat{L} = \frac{\hbar}{i}\vec{r}\times\nabla
+  \label{L}
+\end{equation}
+Now let's begin our calculations
+\begin{eqnarray}
+  \begin{aligned}
+  \vec{m} &= \frac{1}{2}\int \vec{r}\times \vec{j_e} d^3r = \frac{1}{2}\int \vec{r}\times \left(\frac{-e\hbar}{2im_e}\right)\left(\psi_{n,l,m}^*\nabla \psi_{n,l,m} - \psi_{n,l,m} \nabla \psi_{n,l,m}^*\right)d^3r,\nonumber\\
+  &= \frac{1}{2}\int  \left(\frac{-e\hbar}{2im_e}\right)\psi_{n,l,m}^* \vec{r}\times\nabla \psi_{n,l,m} - \left(\frac{-e\hbar}{2im_e}\right)\psi_{n,l,m} \vec{r}\times\nabla \psi_{n,l,m}^*d^3r, \nonumber \\
+  &= \frac{1}{2}\left(\frac{-e}{2m_e}\right)\int  \psi_{n,l,m}^* \hat{L} \psi_{n,l,m} - \psi_{n,l,m} \hat{L} \psi_{n,l,m}^*d^3r, \qquad \text{using eq. \ref{L}},\nonumber\\
+  &= \frac{1}{2}\left(\frac{-e}{2m_e}\right)2\Braket{ \psi_{n,l,m}| \hat{L} |\psi_{n,l,m} } ,\nonumber\\
+  &= \frac{-e}{2m_e}\Braket{ \psi_{n,l,m}| \hat{L} |\psi_{n,l,m} } ,\nonumber\\
+ \end{aligned}
+\end{eqnarray}
+
+\begin{eqnarray}
+  \begin{aligned}
+    &= \frac{-e\hbar}{2\hbar m_e}\Braket{ \psi_{n,l,m}| \hat{L} |\psi_{n,l,m} } ,\nonumber \\
+ \end{aligned}
+\end{eqnarray}
+and finally
+\begin{equation}
+  = \hlgreen{ \frac{-\mu_B}{\hbar}\Braket{ \psi_{n,l,m}| \hat{L} |\psi_{n,l,m} } , }\quad \text{using eq. \ref{mub}}
+  \label{exp:mu}
+\end{equation}
+where in the last step we used the definition of Bohr magneton
+\begin{equation}
+  \mu_B = \frac{e\hbar}{2m_e}.
+  \label{mub}
+\end{equation}
+
+So as we can see there's a direct connection between $\vec{m}$ and the expectation value of the angular momentum operator.
+
+\end{solution}
+
+\question{z-components}
+\begin{solution}
+  If we are only interested in the $z$ component of the magnetic moment then from eq. \ref{exp:mu} we can isolate the $z$ term of $\hat{L}$, and the resulting equation will be
+  \begin{equation}
+    m_z = -\frac{\mu_B}{\hbar}\Braket{ \psi_{n,l,m}| \hat{L}_z |\psi_{n,l,m} },
+    \label{mz}
+  \end{equation}
+  if we remember, the eigenvalue equation for $\hat{L}_z$ is
+  \begin{equation}
+    \hat{L}_z \ket{\psi_{n,l,m}} = \hbar m \ket{\psi_{n,l,m}}.
+    \label{eiglz}
+  \end{equation}
+  Pluging eq. \ref{eiglz} into eq. \ref{mz}  we get
+  \begin{eqnarray}
+    \begin{aligned}
+      m_z &= -\frac{\mu_B}{\hbar}\Braket{ \psi_{n,l,m}| \hat{L}_z |\psi_{n,l,m} },\nonumber\\
+      & = -\frac{\mu_B}{\hbar}\Braket{ \psi_{n,l,m}| \hbar m|\psi_{n,l,m} }, \nonumber \\
+      & = -\mu_B m \cancelto{1}{\Braket{ \psi_{n,l,m}|\psi_{n,l,m} }}, \nonumber\\
+      & = -\mu_B m.
+    \end{aligned}
+  \end{eqnarray}
+  Therefore
+  \begin{equation}
+    [m_{n,l,m}]_z = -\mu_B m,
+  \end{equation}
+  and we can use this to calculate what we need.
+
+  \begin{itemize}
+    \item $[m_{100}]_z = - \mu_B(m)= - \mu_B(0) = \hlgreen{0}$
+    \item $[m_{200}]_z = \hlgreen{0}$, for the same reason as above
+    \item $[m_{21-1}]_z =- \mu_B(-1) = \hlgreen{\mu_B}$
+    \item $[m_{210}]_z= - \mu_B(0) = \hlgreen{0 }$
+    \item $[m_{211}]_z =- \mu_B(1) = \hlgreen{-\mu_B}$
+    \item $[m_{532}]_z =- \mu_B(2) = \hlgreen{-2\mu_B}$
+  \end{itemize}
+\end{solution}
+
+\end{questions}
